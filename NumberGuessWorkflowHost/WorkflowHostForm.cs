@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Activities;
 using System.Activities.DurableInstancing;
+using System.Activities.Tracking;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -51,6 +52,12 @@ namespace NumberGuessWorkflowHost
 
             // Clear the status window.  
             WorkflowStatus.Clear();
+
+            if (File.Exists(WorkflowInstanceId.ToString()))
+            {
+                string status = File.ReadAllText(WorkflowInstanceId.ToString());
+                UpdateStatus(status);
+            }
 
             // Get the workflow version and display it.  
             // If the workflow is just starting then this info will not  
@@ -135,6 +142,25 @@ namespace NumberGuessWorkflowHost
             StringWriter sw = new StringWriter();
             wfApp.Extensions.Add(sw);
 
+
+            StatusTrackingParticipant stp = new StatusTrackingParticipant
+            {
+                TrackingProfile = new TrackingProfile
+                {
+                    Queries =
+                    {
+                        new ActivityStateQuery
+                        {
+                            ActivityName = "WriteLine",
+                            States = { ActivityStates.Executing },
+                            Arguments = { "Text" }
+                        }
+                    }
+                }
+            };
+
+            wfApp.Extensions.Add(stp);
+
             wfApp.Completed = delegate (WorkflowApplicationCompletedEventArgs e)
             {
                 if (e.CompletionState == ActivityInstanceState.Faulted)
@@ -203,6 +229,18 @@ namespace NumberGuessWorkflowHost
 
                 case "FlowchartNumberGuessWorkflow":
                     identity = WorkflowVersionMap.FlowchartNumberGuessIdentity;
+                    break;
+
+                case "SequentialNumberGuessWorkflow v1":
+                    identity = WorkflowVersionMap.SequentialNumberGuessIdentity_v1;
+                    break;
+
+                case "StateMachineNumberGuessWorkflow v1":
+                    identity = WorkflowVersionMap.StateMachineNumberGuessIdentity_v1;
+                    break;
+
+                case "FlowchartNumberGuessWorkflow v1":
+                    identity = WorkflowVersionMap.FlowchartNumberGuessIdentity_v1;
                     break;
             };
 

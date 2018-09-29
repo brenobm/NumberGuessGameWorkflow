@@ -35,13 +35,13 @@
             this.WorkflowType = new System.Windows.Forms.ComboBox();
             this.WorkflowVersion = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.InstanceId = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Guess = new System.Windows.Forms.TextBox();
-            this.EnterGuess = new System.Windows.Forms.Button();
-            this.QuitGame = new System.Windows.Forms.Button();
             this.WorkflowStatus = new System.Windows.Forms.TextBox();
+            this.QuitGame = new System.Windows.Forms.Button();
+            this.EnterGuess = new System.Windows.Forms.Button();
+            this.Guess = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.InstanceId = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +93,10 @@
             this.WorkflowType.Items.AddRange(new object[] {
             "StateMachineNumberGuessWorkflow",
             "FlowchartNumberGuessWorkflow",
-            "SequentialNumberGuessWorkflow"});
+            "SequentialNumberGuessWorkflow",
+            "StateMachineNumberGuessWorkflow v1",
+            "FlowchartNumberGuessWorkflow v1",
+            "SequentialNumberGuessWorkflow v1"});
             this.WorkflowType.Location = new System.Drawing.Point(94, 40);
             this.WorkflowType.Name = "WorkflowType";
             this.WorkflowType.Size = new System.Drawing.Size(277, 21);
@@ -124,50 +127,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Game";
             // 
-            // label3
+            // WorkflowStatus
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Workflow Instance Id";
-            // 
-            // InstanceId
-            // 
-            this.InstanceId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.InstanceId.FormattingEnabled = true;
-            this.InstanceId.Location = new System.Drawing.Point(121, 17);
-            this.InstanceId.Name = "InstanceId";
-            this.InstanceId.Size = new System.Drawing.Size(227, 21);
-            this.InstanceId.TabIndex = 1;
-            this.InstanceId.SelectedIndexChanged += new System.EventHandler(this.InstanceId_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Guess";
-            // 
-            // Guess
-            // 
-            this.Guess.Location = new System.Drawing.Point(50, 44);
-            this.Guess.Name = "Guess";
-            this.Guess.Size = new System.Drawing.Size(65, 20);
-            this.Guess.TabIndex = 3;
-            // 
-            // EnterGuess
-            // 
-            this.EnterGuess.Location = new System.Drawing.Point(121, 42);
-            this.EnterGuess.Name = "EnterGuess";
-            this.EnterGuess.Size = new System.Drawing.Size(75, 23);
-            this.EnterGuess.TabIndex = 4;
-            this.EnterGuess.Text = "Enter Guess";
-            this.EnterGuess.UseVisualStyleBackColor = true;
-            this.EnterGuess.Click += new System.EventHandler(this.EnterGuess_Click);
+            this.WorkflowStatus.Location = new System.Drawing.Point(10, 73);
+            this.WorkflowStatus.Multiline = true;
+            this.WorkflowStatus.Name = "WorkflowStatus";
+            this.WorkflowStatus.ReadOnly = true;
+            this.WorkflowStatus.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.WorkflowStatus.Size = new System.Drawing.Size(338, 208);
+            this.WorkflowStatus.TabIndex = 6;
             // 
             // QuitGame
             // 
@@ -179,15 +147,50 @@
             this.QuitGame.UseVisualStyleBackColor = true;
             this.QuitGame.Click += new System.EventHandler(this.QuitGame_Click);
             // 
-            // WorkflowStatus
+            // EnterGuess
             // 
-            this.WorkflowStatus.Location = new System.Drawing.Point(10, 73);
-            this.WorkflowStatus.Multiline = true;
-            this.WorkflowStatus.Name = "WorkflowStatus";
-            this.WorkflowStatus.ReadOnly = true;
-            this.WorkflowStatus.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.WorkflowStatus.Size = new System.Drawing.Size(338, 208);
-            this.WorkflowStatus.TabIndex = 6;
+            this.EnterGuess.Location = new System.Drawing.Point(121, 42);
+            this.EnterGuess.Name = "EnterGuess";
+            this.EnterGuess.Size = new System.Drawing.Size(75, 23);
+            this.EnterGuess.TabIndex = 4;
+            this.EnterGuess.Text = "Enter Guess";
+            this.EnterGuess.UseVisualStyleBackColor = true;
+            this.EnterGuess.Click += new System.EventHandler(this.EnterGuess_Click);
+            // 
+            // Guess
+            // 
+            this.Guess.Location = new System.Drawing.Point(50, 44);
+            this.Guess.Name = "Guess";
+            this.Guess.Size = new System.Drawing.Size(65, 20);
+            this.Guess.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Guess";
+            // 
+            // InstanceId
+            // 
+            this.InstanceId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.InstanceId.FormattingEnabled = true;
+            this.InstanceId.Location = new System.Drawing.Point(121, 17);
+            this.InstanceId.Name = "InstanceId";
+            this.InstanceId.Size = new System.Drawing.Size(227, 21);
+            this.InstanceId.TabIndex = 1;
+            this.InstanceId.SelectedIndexChanged += new System.EventHandler(this.InstanceId_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Workflow Instance Id";
             // 
             // WorkflowHostForm
             // 

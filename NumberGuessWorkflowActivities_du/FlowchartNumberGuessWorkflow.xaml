@@ -94,17 +94,6 @@
                     <FlowDecision.Condition>
                       <mca:CSharpValue x:TypeArguments="x:Boolean">Guess == Target</mca:CSharpValue>
                     </FlowDecision.Condition>
-                    <FlowDecision.True>
-                      <FlowStep x:Name="__ReferenceID7">
-                        <WriteLine>
-                          <InArgument x:TypeArguments="x:String">
-                            <mca:CSharpValue x:TypeArguments="x:String">Guess + " is correct. You guessed it in " + Turns + " turns."</mca:CSharpValue>
-                          </InArgument>
-                          <sap2010:WorkflowViewState.IdRef>WriteLine_3</sap2010:WorkflowViewState.IdRef>
-                        </WriteLine>
-                        <sap2010:WorkflowViewState.IdRef>FlowStep_6</sap2010:WorkflowViewState.IdRef>
-                      </FlowStep>
-                    </FlowDecision.True>
                     <FlowDecision.False>
                       <FlowDecision x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                         <FlowDecision.Condition>
@@ -112,11 +101,7 @@
                         </FlowDecision.Condition>
                         <FlowDecision.True>
                           <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_3">
-                            <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1">
-                              <InArgument x:TypeArguments="x:String">
-                                <mca:CSharpValue x:TypeArguments="x:String">Guess + " is too low."</mca:CSharpValue>
-                              </InArgument>
-                            </WriteLine>
+                            <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Your guess is too low." />
                             <FlowStep.Next>
                               <x:Reference>__ReferenceID0</x:Reference>
                             </FlowStep.Next>
@@ -124,11 +109,7 @@
                         </FlowDecision.True>
                         <FlowDecision.False>
                           <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_4">
-                            <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2">
-                              <InArgument x:TypeArguments="x:String">
-                                <mca:CSharpValue x:TypeArguments="x:String">Guess + " is too high."</mca:CSharpValue>
-                              </InArgument>
-                            </WriteLine>
+                            <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="Your guess is too high." />
                             <FlowStep.Next>
                               <x:Reference>__ReferenceID0</x:Reference>
                             </FlowStep.Next>
@@ -151,8 +132,7 @@
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
-    <x:Reference>__ReferenceID7</x:Reference>
-    <sads:DebugSymbol.Symbol>d2RDOlxicmVub1xQcm9qZXRvc1xXRlxOdW1iZXJHdWVzc0dhbWVcTnVtYmVyR3Vlc3NXb3JrZmxvd0FjdGl2aXRpZXNcRmxvd2NoYXJ0TnVtYmVyR3Vlc3NXb3JrZmxvdy54YW1sEy0DnAEPAgEBNAk/EgIBNUINTRwCASlQEVsaAgEeXxdfZQIBGW8bb2sCARR/HYMBKQIBDnMddykCAQhjGWglAgECPA88dgIBOzcPN1oCATZCKEI0AgE0ShNKgwECAS9FE0VdAgEqWBdYXQIBJFMXU2ECAR+BASGBAXYCAQ91IXV1AgEJZR1lmAECAQM=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d2RDOlxicmVub1xQcm9qZXRvc1xXRlxOdW1iZXJHdWVzc0dhbWVcTnVtYmVyR3Vlc3NXb3JrZmxvd0FjdGl2aXRpZXNcRmxvd2NoYXJ0TnVtYmVyR3Vlc3NXb3JrZmxvdy54YW1sES0DiAEPAgEBNAk/EgIBJ0INTRwCARtQEVsaAgEQXxdfZQIBC2QbZGsCAQZwHXB3AgEEaB1odgIBAjwPPHYCAS03DzdaAgEoQihCNAIBJkoTSoMBAgEhRRNFXQIBHFgXWF0CARZTF1NhAgERcFtwdAIBBWhbaHMCAQM=</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -177,21 +157,6 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="210,62">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_6">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">15,509</av:Point>
-            <av:Size x:Key="ShapeSize">210,62</av:Size>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="210,62">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -204,7 +169,7 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">5,679</av:Point>
             <av:Size x:Key="ShapeSize">210,62</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">5,710 0,710 0,250.5 199.895,250.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">5,710 -25,710 -25,250.5 199.895,250.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -242,7 +207,6 @@
             <av:Point x:Key="ShapeLocation">264.79,423.5</av:Point>
             <av:Size x:Key="ShapeSize">70,87</av:Size>
             <av:PointCollection x:Key="FalseConnector">334.79,467 364.79,467 364.79,536.5 307.5,536.5 307.5,566.5</av:PointCollection>
-            <av:PointCollection x:Key="TrueConnector">264.79,467 120,467 120,509</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>

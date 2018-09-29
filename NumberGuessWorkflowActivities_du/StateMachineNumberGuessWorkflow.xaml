@@ -95,20 +95,12 @@
                         </local:ReadInt.Result>
                       </local:ReadInt>
                     </Transition.Trigger>
-                    <Transition.To>
-                      <State x:Name="__ReferenceID3" DisplayName="FinalState" sap2010:WorkflowViewState.IdRef="State_2" IsFinal="True" />
-                    </Transition.To>
-                    <Transition.Action>
-                      <WriteLine>
-                        <InArgument x:TypeArguments="x:String">
-                          <mca:CSharpValue x:TypeArguments="x:String">Guess + " is correct. You guessed it in " + Turns + " turns."</mca:CSharpValue>
-                        </InArgument>
-                        <sap2010:WorkflowViewState.IdRef>WriteLine_4</sap2010:WorkflowViewState.IdRef>
-                      </WriteLine>
-                    </Transition.Action>
                     <Transition.Condition>
                       <mca:CSharpValue x:TypeArguments="x:Boolean">Guess == Target</mca:CSharpValue>
                     </Transition.Condition>
+                    <Transition.To>
+                      <State x:Name="__ReferenceID3" DisplayName="FinalState" sap2010:WorkflowViewState.IdRef="State_2" IsFinal="True" />
+                    </Transition.To>
                   </Transition>
                   <Transition Trigger="{x:Reference __ReferenceID1}" DisplayName="Guess Incorrect" sap2010:WorkflowViewState.IdRef="Transition_3" To="{x:Reference __ReferenceID0}">
                     <Transition.Action>
@@ -119,18 +111,10 @@
                           </InArgument>
                         </If.Condition>
                         <If.Then>
-                          <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2">
-                            <InArgument x:TypeArguments="x:String">
-                              <mca:CSharpValue x:TypeArguments="x:String">Guess + " is too low."</mca:CSharpValue>
-                            </InArgument>
-                          </WriteLine>
+                          <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="Your guess is too low." />
                         </If.Then>
                         <If.Else>
-                          <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_3">
-                            <InArgument x:TypeArguments="x:String">
-                              <mca:CSharpValue x:TypeArguments="x:String">Guess + " is too high."</mca:CSharpValue>
-                            </InArgument>
-                          </WriteLine>
+                          <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="Your guess is too high." />
                         </If.Else>
                       </If>
                     </Transition.Action>
@@ -152,7 +136,7 @@
       <Variable x:TypeArguments="x:Int32" Name="Guess" />
       <Variable x:TypeArguments="x:Int32" Name="Target" />
     </StateMachine.Variables>
-    <sads:DebugSymbol.Symbol>d2dDOlxicmVub1xQcm9qZXRvc1xXRlxOdW1iZXJHdWVzc0dhbWVcTnVtYmVyR3Vlc3NXb3JrZmxvd0FjdGl2aXRpZXNcU3RhdGVNYWNoaW5lTnVtYmVyR3Vlc3NXb3JrZmxvdy54YW1sGS0DnAESAgEBLweSAQ8CAUBBD44BFwIBBGMXY4oBAgECMQs8FAIBQ0MTRx8CATpKE1UcAgEvWhdgJwIBKG4XbmUCASNmF2sjAgEdigEXigFlAgEYcxeHARwCAQY5ETl4AgFJNBE0XAIBREUXRYcBAgE7UhlSXwIBNU0ZTWMCATBaS1pXAgEuXR1dZwIBKWgbaJYBAgEedh12bQIBB3obficCARKBARuFAScCAQx8H3xzAgETgwEfgwF0AgEN</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d2dDOlxicmVub1xQcm9qZXRvc1xXRlxOdW1iZXJHdWVzc0dhbWVcTnVtYmVyR3Vlc3NXb3JrZmxvd0FjdGl2aXRpZXNcU3RhdGVNYWNoaW5lTnVtYmVyR3Vlc3NXb3JrZmxvdy54YW1sFy0DjAESAgEBLweCAQ8CATJBD34XAgEEZhdmigECAQIxCzwUAgE1QxNHHwIBLEoTVRwCASFaF2AnAgEaYxdjZQIBFXoXemUCARBrF3ccAgEGORE5eAIBOzQRNFwCATZFF0WHAQIBLVIZUl8CASdNGU1jAgEiWktaVwIBIF0dXWcCARtuHW5tAgEHchtydAIBDnUbdXUCAQxyWXJxAgEPdVl1cgIBDQ==</sads:DebugSymbol.Symbol>
   </StateMachine>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -169,8 +153,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="WriteLine_4" sap:VirtualizedContainerService.HintSize="210,62" />
-      <sap2010:ViewStateData Id="Transition_1" sap:VirtualizedContainerService.HintSize="430,535">
+      <sap2010:ViewStateData Id="Transition_1" sap:VirtualizedContainerService.HintSize="430,507">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">164,221.5 194,221.5 194,220 323,220</av:PointCollection>
@@ -191,7 +174,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="State_3" sap:VirtualizedContainerService.HintSize="114,61">
+      <sap2010:ViewStateData Id="State_3" sap:VirtualizedContainerService.HintSize="326,499">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">50,191</av:Point>
